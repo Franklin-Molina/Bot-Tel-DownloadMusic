@@ -1,10 +1,10 @@
-from config import token
 from telegram.ext import Updater,CommandHandler,MessageHandler,Filters
 from telegram import MessageEntity
 import tempfile as tf
 import os
 import urllib.request
 
+import settings
 
 
 
@@ -49,7 +49,7 @@ def download(update, context):
     msg.edit_text("No se encontro la url, intente otravez")
 
 
-updater = Updater(token=token, use_context=True)
+updater = Updater(token=settings.TOKEN, use_context=True)
 dispatcher = updater.dispatcher
 
 dispatcher.add_handler(CommandHandler('start',start))
